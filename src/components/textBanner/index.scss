@@ -1,0 +1,119 @@
+@import "../../styles/index.scss";
+
+.text-banner-container {
+  color: white;
+  background-image: url("../../media/img/back-blue.png");
+  background-position: bottom center;
+  background-repeat: repeat-x;
+  background-size: contain;
+
+  .title {
+    font-size: 37px;
+    strong {
+      color: #1fbfe6;
+      letter-spacing: var(--unnamed-character-spacing-0);
+      text-align: center;
+      font: Solid 60px/72px Filicudi;
+      letter-spacing: 0px;
+      text-shadow: 0px 10px 20px #000000b3;
+      opacity: 1;
+    }
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: #1fbfe6;
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-1fbfe6);
+    text-align: center;
+    font: Solid 24px/29px Filicudi;
+    letter-spacing: 0px;
+    color: #1fbfe6;
+    opacity: 1;
+  }
+}
+
+.icon {
+  transition: all 0.2s ease-in-out;
+  width: 100px;
+}
+
+.item-title {
+  //text-decoration: underline;
+}
+
+$animate: all 0.1s ease-in-out;
+
+/** Hover-related CSS **/
+
+.example {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin: 0 0 45px;
+  .hover {
+    //font-size: 36px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    transition: $animate;
+    position: relative;
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      width: 0px;
+      height: 5px;
+      margin: 5px 0 0;
+      transition: $animate;
+      transition-duration: 0.3s;
+      opacity: 0;
+      background-color: #eba92a;
+    }
+
+    &.hover-3 {
+      &:before {
+        left: 50%;
+      }
+      &:after {
+        right: 50%;
+      }
+    }
+  }
+}
+
+.item-container:hover {
+  cursor: pointer;
+  .hover {
+    &:before,
+    &:after {
+      width: 100%;
+      opacity: 1;
+    }
+    &.hover-3 {
+      &:before,
+      &:after {
+        width: 50%;
+      }
+    }
+  }
+
+  .icon {
+    transform: scale(1.2);
+  }
+}
+
+.hover-f1:before {
+  background-color: #2ebfe4 !important;
+}
+.hover-f1:after {
+  background-color: #2ebfe4 !important;
+}
+
+.hover-f2:before {
+  background-color: #c53ac5 !important;
+}
+.hover-f2:after {
+  background-color: #c53ac5 !important;
+}

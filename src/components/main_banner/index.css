@@ -1,0 +1,128 @@
+@-webkit-keyframes maxi {
+  from {
+    transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes maxi {
+  from {
+    transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.center-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.banner {
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.3))), url("../../media/img/clouds.png");
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../../media/img/clouds.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: white;
+}
+
+.banner .switch-to-animation {
+  font-size: 15px;
+}
+
+.banner .logo {
+  width: 75px;
+  height: auto;
+}
+
+@media (min-width: 765px) {
+  .banner .logo {
+    width: 75px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .banner .logo {
+    width: 75px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .banner .logo {
+    width: 75px;
+  }
+}
+
+.banner .item-container {
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 9px;
+}
+
+.banner .item-container .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.banner .rocket-banner {
+  background: url("../../media/img/rocket.png");
+  background-position: top center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.banner .rocket-banner .text-rocket-container {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  font-size: 41px;
+  text-align: left;
+  letter-spacing: 0px;
+  text-shadow: 0px 10px 20px #000000b3;
+}
+
+.banner .rocket-banner .text-rocket-container strong {
+  color: #1fbfe6;
+}
+/*# sourceMappingURL=index.css.map */

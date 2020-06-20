@@ -10,7 +10,7 @@ const Banner = () => {
   useEffect(() => {
     //console.log("width", ref.current ? ref.current.offsetWidth : 0);
     setW(ref.current ? ref.current.offsetWidth : 0);
-  }, [ref.current]);
+  }, [ref]);
 
   const resizeRocket = () => {
     setW(ref.current ? ref.current.offsetWidth : 0);
@@ -35,10 +35,10 @@ const Banner = () => {
               <div className="col-4">
                 <img src={logo} alt="logo" className="logo" />
               </div>
-              <div className="col-4 text-center center-center">
+              <div className="col-4 text-center center-center filicudi switch-to-animation">
                 SWITCH TO ANIMATION
               </div>
-              <div className="col-4 item-container">
+              <div className="col-4 item-container american">
                 <div className="item">WHY ANIMATION?</div>
                 <div className="item">ANIMATION EXAMPLES</div>
                 <div className="item">GET A QUOTE</div>
@@ -54,10 +54,30 @@ const Banner = () => {
           >
             <div className="row">
               <div
-                className="col-6 center-center  center-center text-rocket-container"
+                className="col-6 center-center  center-center text-rocket-container "
                 style={{ height: `${w * 0.5423 * 0.8}px` }}
               >
-                <div className="text-rocket pl-5">text</div>
+                <div className="text-rocket pl-5 filicudi">
+                  SMART COMPANIES <br /> <strong>KNOW HOW TO</strong> ADAPT{" "}
+                  <br />
+                  TO CHALLENGES{" "}
+                  <strong>
+                    {" "}
+                    THAT <br /> COME THEIR WAY{" "}
+                  </strong>
+                </div>
+                <div className="mini-form pl-5">
+                  <input
+                    type="text"
+                    className="american"
+                    placeholder="Enter email"
+                  />
+                  <button className="filicudi">Get info</button>
+                </div>
+                <div className="mini-text pl-5 american mt-3">
+                  Learn more about using animation <br />
+                  in your next video project
+                </div>
               </div>
               <div className="col-6"></div>
             </div>

@@ -108,7 +108,7 @@ const Banner = () => {
             <ul className="navbar-nav mr-auto">
               {menuItems.map((item, i) => (
                 <li className="nav-item" key={i}>
-                  <a className="nav-link" href="#d">
+                  <a className="nav-link american" href="#d">
                     {item}
                   </a>
                 </li>

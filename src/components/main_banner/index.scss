@@ -55,8 +55,8 @@
   }
 
   .text-rocket {
-    @include multi(font-size, 22px, 22px, 41px, 41px);
-    @include multi(line-height, 25px, 25px, 41px, 41px);
+    @include multi(font-size, 26px, 26px, 41px, 41px);
+    @include multi(line-height, 28px, 28px, 41px, 41px);
     @include multi(text-align, center, center, left, left);
     letter-spacing: 0px;
     text-shadow: 0px 10px 20px #000000b3;
@@ -88,14 +88,12 @@
   //@include multi(margin-top, 0px, 100px, -100px, -100px);
   display: flex;
   flex-flow: row nowrap;
-  border: 1px solid white;
+  //border: 1px solid white;
   //width: 360px;
   input {
     width: 260px;
     //@include multi(width, 500px, 200px, 260px, 260px);
-    background: transparent
-      linear-gradient(356deg, var(--unnamed-color-1c2a79) 0%, #121b4d 100%) 0%
-      0% no-repeat padding-box;
+
     background: transparent linear-gradient(356deg, #1c2a79 0%, #121b4d 100%) 0%
       0% no-repeat padding-box;
     box-shadow: 0px 10px 10px #00000066;
@@ -105,6 +103,10 @@
     padding: 10px 20px;
     color: white;
     font-size: 10px;
+
+    position: relative;
+    @include multi(left, 30px, 30px, 0px, 0px);
+    @include multi(top, -20px, -20px, 0px, 0px);
   }
   ::-webkit-input-placeholder {
     /* WebKit, Blink, Edge */
@@ -155,8 +157,16 @@
     font-size: 11px;
     padding: 10px 20px;
     position: relative;
-    @include multi(left, -40px, -100px, -100px, -100px);
+    @include multi(left, -30px, -50px, -100px, -100px);
+    @include multi(top, -20px, -20px, 0px, 0px);
     //top: 0px;
     //left: -10px;
+  }
+}
+
+.navbar-collapse {
+  margin-top: 20px;
+  .nav-link {
+    color: white !important;
   }
 }

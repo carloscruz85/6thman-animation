@@ -1,0 +1,172 @@
+@import "../../styles/index.scss";
+
+.banner {
+  //@include full-full();
+  //@include center-center();
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("../../media/img/clouds.png");
+  @include back-image();
+  color: white;
+
+  .menu-mobile {
+    @include multi(display, block, block, none, none);
+    .logo {
+      width: 54px;
+    }
+  }
+
+  .rocket-mobile-container {
+    .rocket-mobile {
+      @include multi(display, flex, flex, none, none);
+      box-shadow: 0px 10px 20px #000000b3;
+      background: url("../../media/img/rocket-mobile.png");
+      background-position: top center;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+
+      flex-flow: column nowrap;
+      //align-content: space-around;
+      justify-content: space-between;
+    }
+  }
+
+  .menu-pc {
+    @include multi(display, none, none, block, block);
+  }
+
+  .switch-to-animation {
+    font-size: 15px;
+  }
+
+  .logo {
+    @include multi(width, 75px, 75px, 75px, 75px);
+    height: auto;
+  }
+
+  .item-container {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    .item {
+      @include center-center();
+    }
+  }
+
+  .text-rocket {
+    @include multi(font-size, 26px, 26px, 41px, 41px);
+    @include multi(line-height, 28px, 28px, 41px, 41px);
+    @include multi(text-align, center, center, left, left);
+    letter-spacing: 0px;
+    text-shadow: 0px 10px 20px #000000b3;
+    strong {
+      color: #1fbfe6;
+    }
+  }
+
+  .rocket-banner {
+    @include multi(display, none, none, block, block);
+
+    //@include multi(height, 50vh, 50vh, 50vh, 50vh);
+    //border: 1px solid white;
+    background: url("../../media/img/rocket.png");
+    background-position: top center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    .text-rocket-container {
+      align-items: flex-start;
+      text-align: left;
+    }
+    .mini-text {
+      font-size: 11px;
+    }
+  }
+}
+
+.mini-form {
+  //@include multi(margin-top, 0px, 100px, -100px, -100px);
+  display: flex;
+  flex-flow: row nowrap;
+  //border: 1px solid white;
+  //width: 360px;
+  input {
+    width: 260px;
+    //@include multi(width, 500px, 200px, 260px, 260px);
+
+    background: transparent linear-gradient(356deg, #1c2a79 0%, #121b4d 100%) 0%
+      0% no-repeat padding-box;
+    box-shadow: 0px 10px 10px #00000066;
+    border-radius: 31px;
+    border: none;
+    //padding-left: 20px;
+    padding: 10px 20px;
+    color: white;
+    font-size: 10px;
+
+    position: relative;
+    @include multi(left, 30px, 30px, 0px, 0px);
+    @include multi(top, -20px, -20px, 0px, 0px);
+  }
+  ::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: #ffffff;
+  }
+  :-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #ffffff;
+    opacity: 1;
+  }
+  ::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #ffffff;
+    opacity: 1;
+  }
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #ffffff;
+  }
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #ffffff;
+  }
+
+  ::placeholder {
+    /* Most modern browsers support this now. */
+    color: #ffffff;
+  }
+  button {
+    //display: none;
+    //width: 100px;
+    @include multi(width, 120px, 120px, 100px, 100px);
+    background: transparent
+      linear-gradient(
+        180deg,
+        var(--unnamed-color-ff3f40) 0%,
+        #fa3e3f 34%,
+        #802020 100%
+      )
+      0% 0% no-repeat padding-box;
+    background: transparent
+      linear-gradient(180deg, #ff3f40 0%, #fa3e3f 34%, #802020 100%) 0% 0%
+      no-repeat padding-box;
+    border-radius: 31px;
+    opacity: 1;
+    color: white;
+    border: none;
+    font-size: 11px;
+    padding: 10px 20px;
+    position: relative;
+    @include multi(left, -30px, -50px, -100px, -100px);
+    @include multi(top, -20px, -20px, 0px, 0px);
+    //top: 0px;
+    //left: -10px;
+  }
+}
+
+.navbar-collapse {
+  margin-top: 20px;
+  .nav-link {
+    color: white !important;
+  }
+}

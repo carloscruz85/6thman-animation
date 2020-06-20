@@ -5,10 +5,10 @@
   background-image: url("../../media/img/back-blue.png");
   background-position: bottom center;
   background-repeat: repeat-x;
-  background-size: contain;
+  background-size: 10% 100%;
 
   .title {
-    font-size: 37px;
+    @include multi(font-size, 30px, 30px, 37px, 37px);
     strong {
       color: #1fbfe6;
       letter-spacing: var(--unnamed-character-spacing-0);
@@ -39,6 +39,8 @@
 }
 
 .item-title {
+  @include multi(font-size, 24px, 24px, 18px, 18px);
+
   //text-decoration: underline;
 }
 

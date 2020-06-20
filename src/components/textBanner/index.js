@@ -46,7 +46,10 @@ const index = () => {
 
           {items.map((item, i) => {
             return (
-              <div className="col-4 text-center item-container" key={i}>
+              <div
+                className="col-12 col-md-4 mb-5 mb-md-0 text-center item-container"
+                key={i}
+              >
                 <img className="icon" src={item.icon} alt="..." />
                 <div className="example">
                   <div

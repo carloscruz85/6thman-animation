@@ -52,7 +52,7 @@ const Banner = () => {
       <div
         className={`text-rocket ${
           props.paddingLeft ? "pl-5" : ""
-        } filicudi mb-2`}
+        } filicudi mb-4`}
       >
         SMART COMPANIES <br /> <strong>KNOW HOW TO</strong> ADAPT <br />
         TO CHALLENGES{" "}
@@ -160,7 +160,7 @@ const Banner = () => {
                 <TextRocket paddingLeft={true} />
                 <MiniForm paddingLeft={true} />
 
-                <div className="mini-text pl-5 american mt-3">
+                <div className="mini-text pl-5 ml-3 american mt-3">
                   Learn more about using animation <br />
                   in your next video project
                 </div>

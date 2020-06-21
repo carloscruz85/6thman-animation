@@ -35,7 +35,9 @@ const index = () => {
             <div className="col-12">
               <div className="cards">
                 <div className="pink-card">
-                  <div className="text">YOUR NEXT ANIMATION PROJECT</div>
+                  <div className="text">
+                    YOUR NEXT <br /> ANIMATION PROJECT
+                  </div>
                 </div>
                 <div className="soft-blue-card">
                   <div className="text">GET INSPIRED FOR</div>
@@ -45,7 +47,10 @@ const index = () => {
             {/* videos */}
             {videos.map((data, i) => {
               return (
-                <div key={i} className="col-12 col-sm-4 video-container">
+                <div
+                  key={i}
+                  className="col-12 col-sm-4 video-container mb-5 mb-sm-0"
+                >
                   <div className={`video-video bg-${i}`}>
                     <div className="embed-responsive embed-responsive-16by9 shadow">
                       <iframe
@@ -55,9 +60,9 @@ const index = () => {
                       ></iframe>
                     </div>
                   </div>
-                  <div className="video-title mt-3"> {data.title}</div>
-                  <div className="video-content px-5">
-                    <div className="px-5 mb-4">{data.content}</div>
+                  <div className="video-title m-3 mt-sm-3"> {data.title}</div>
+                  <div className="video-content px-2 px-sm-5">
+                    <div className="px-0 px-sm-5 mb-4">{data.content}</div>
                   </div>
                 </div>
               );

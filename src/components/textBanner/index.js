@@ -56,8 +56,11 @@ const index = () => {
                     className={`item-title filicudi  hover hover-f${i} hover-3`}
                   >
                     {item.title}
+                    {/*                     <div className={`underline color-${i}`}></div>
+                     */}{" "}
                   </div>
                 </div>
+
                 <div className="item-data american">{item.data}</div>
               </div>
             );

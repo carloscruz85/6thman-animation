@@ -65,21 +65,26 @@ $animate: all 0.1s ease-in-out;
       content: "";
       position: absolute;
       bottom: -10px;
-      width: 0px;
+      width: 10px;
       height: 5px;
       margin: 5px 0 0;
       transition: $animate;
       transition-duration: 0.3s;
-      opacity: 0;
+      opacity: 1;
       background-color: #eba92a;
+      box-shadow: 0px 10px 20px #000000b3;
     }
 
     &.hover-3 {
       &:before {
         left: 50%;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
       }
       &:after {
         right: 50%;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
       }
     }
   }
@@ -118,4 +123,11 @@ $animate: all 0.1s ease-in-out;
 }
 .hover-f2:after {
   background-color: #c53ac5 !important;
+}
+
+.underline {
+  margin: 0;
+  height: 5px;
+  background-color: #eba92a;
+  width: 5px;
 }

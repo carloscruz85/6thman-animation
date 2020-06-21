@@ -16,6 +16,8 @@
   }
 
   .rocket-mobile-container {
+    @include multi(display, flex, flex, none, none);
+
     .rocket-mobile {
       @include multi(display, flex, flex, none, none);
       box-shadow: 0px 10px 20px #000000b3;

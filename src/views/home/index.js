@@ -3,7 +3,7 @@ import "./index.scss";
 import Banner from "../../components/main_banner";
 import TextBanner from "../../components/textBanner";
 import VideoBanner from "../../components/videoBanner";
-
+import FooterForm from "../../components/footerForm";
 const App = () => {
   return (
     <>
@@ -11,6 +11,7 @@ const App = () => {
        */}{" "}
       {/*  <TextBanner />
       <VideoBanner /> */}
+      <FooterForm />
     </>
   );
 };

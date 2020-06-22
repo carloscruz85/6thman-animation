@@ -37,7 +37,7 @@
   }
 
   .switch-to-animation {
-    font-size: 15px;
+    font-size: 20px;
   }
 
   .logo {
@@ -57,8 +57,8 @@
   }
 
   .text-rocket {
-    @include multi(font-size, 26px, 26px, 41px, 41px);
-    @include multi(line-height, 28px, 28px, 41px, 41px);
+    @include multi(font-size, 26px, 26px, 50px, 50px);
+    @include multi(line-height, 28px, 28px, 60px, 60px);
     @include multi(text-align, center, center, left, left);
     letter-spacing: 0px;
     text-shadow: 0px 10px 20px #000000b3;
@@ -93,7 +93,7 @@
   //border: 1px solid white;
   //width: 360px;
   input {
-    width: 260px;
+    width: 320px;
     //@include multi(width, 500px, 200px, 260px, 260px);
 
     background: transparent linear-gradient(356deg, #1c2a79 0%, #121b4d 100%) 0%
@@ -140,7 +140,7 @@
   button {
     //display: none;
     //width: 100px;
-    @include multi(width, 120px, 120px, 100px, 100px);
+    @include multi(width, 150px, 150px, 100px, 100px);
     background: transparent
       linear-gradient(
         180deg,

@@ -1,14 +1,32 @@
 import React, { useRef, useEffect, useState } from "react";
 import "./index.scss";
 import logo from "../../media/img/logo.png";
+import axios from "axios";
+import Modal from "../../components/modal";
 
 const Banner = () => {
   const [w, setW] = useState(0);
   const [widthRocketContainer, setWidthRocketContainer] = useState(0);
-
+  const [emailData, setEmailData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [overlayer, setOverlayer] = useState({
+    show: false,
+    msg: "",
+    title: "",
+    closeButton: false,
+    loader: false,
+    actionButton: {
+      action: null,
+      text: "Cerrar",
+    },
+  });
   const ref = useRef(null);
   const refRocketMobileContainer = useRef(null);
   const miniForm = useRef(null);
+  const miniFormMobile = useRef(null);
 
   useEffect(() => {
     setW(ref.current ? ref.current.offsetWidth : 0);
@@ -40,8 +58,97 @@ const Banner = () => {
     };
   }, []);
 
-  const send = () => {
-    if (miniForm !== null) console.log("here", miniForm.current.value);
+  const send = (varMiniForm) => {
+    if (varMiniForm !== null) {
+      console.log(`value ${varMiniForm.current.value}`);
+
+      if (varMiniForm.current.value.length !== 0) {
+        console.log("data received");
+        setOverlayer({
+          show: true,
+          msg: "Sending email please wait a moment",
+          title: "",
+          closeButton: "false",
+          loader: true,
+        });
+
+        setEmailData({
+          name: varMiniForm.current.value,
+          email: varMiniForm.current.value,
+          message: `${varMiniForm.current.value} wants info from 6THMAN`,
+        });
+
+        axios({
+          method: "POST",
+          url: "http://carloscruz85.com/mail.php",
+          data: emailData,
+        }).then((response) => {
+          if (response.data.status === "success") {
+            setOverlayer({
+              show: true,
+              msg: "Mail sent",
+              title: "",
+              closeButton: "false",
+              loader: false,
+              actionButton: {
+                action: () => {
+                  setOverlayer({
+                    show: false,
+                    msg: "Thanks, we will contact you ASAP",
+                    title: "",
+                    closeButton: "true",
+                    loader: false,
+                  });
+                },
+                text: "Close",
+              },
+            });
+          } else if (response.data.status === "fail") {
+            setOverlayer({
+              show: true,
+              msg: "An error ocurred, try again",
+              title: "",
+              closeButton: "false",
+              loader: false,
+              actionButton: {
+                action: () => {
+                  setOverlayer({
+                    show: false,
+                    msg: "",
+                    title: "",
+                    closeButton: "true",
+                    loader: false,
+                  });
+                },
+                text: "Close",
+              },
+            });
+          }
+        });
+      } else {
+        //console.log("no received");
+        //hi();
+        setOverlayer({
+          show: true,
+          msg: "Please provide your email",
+          title: "",
+          closeButton: "false",
+          loader: false,
+          actionButton: {
+            action: () => {
+              setOverlayer({
+                show: false,
+                msg: "Please provide your email",
+                title: "",
+                closeButton: "true",
+                loader: false,
+              });
+            },
+            text: "Close",
+          },
+        });
+      }
+    }
   };
 
   const menuItems = ["WHY ANIMATION?", "ANIMATION EXAMPLES", "GET A QUOTE"];
@@ -52,7 +159,7 @@ const Banner = () => {
       <div
         className={`text-rocket ${
           props.paddingLeft ? "pl-5" : ""
-        } filicudi mb-2`}
+        } filicudi mb-4`}
       >
         SMART COMPANIES <br /> <strong>KNOW HOW TO</strong> ADAPT <br />
         TO CHALLENGES{" "}
@@ -68,7 +175,7 @@ const Banner = () => {
     return (
       <div className={`mini-form ${props.paddingLeft ? "pl-5" : ""}`}>
         <input
-          ref={miniForm}
+          ref={props.myRef}
           type="text"
           className="american"
           placeholder="Enter email"
@@ -76,7 +183,7 @@ const Banner = () => {
         <button
           className="filicudi"
           onClick={() => {
-            send();
+            send(props.myRef);
           }}
         >
           Get info
@@ -158,9 +265,9 @@ const Banner = () => {
                 style={{ height: `${w * 0.5423 * 0.8}px` }}
               >
                 <TextRocket paddingLeft={true} />
-                <MiniForm paddingLeft={true} />
+                <MiniForm paddingLeft={true} myRef={miniForm} />
 
-                <div className="mini-text pl-5 american mt-3">
+                <div className="mini-text pl-5 ml-3 american mt-3">
                   Learn more about using animation <br />
                   in your next video project
                 </div>
@@ -178,7 +285,7 @@ const Banner = () => {
             >
               <TextRocket />
               <div className="mini-form-mobile-container">
-                <MiniForm />
+                <MiniForm myRef={miniFormMobile} />
               </div>
             </div>
           </div>
@@ -186,6 +293,15 @@ const Banner = () => {
           {/* banner mobile */}
         </div>
       </div>
+      <Modal
+        show={overlayer.show}
+        title={overlayer.title}
+        loader={overlayer.loader}
+        actionButton={overlayer.actionButton}
+        closeButton={overlayer.closeButton}
+      >
+        {overlayer.msg}
+      </Modal>
     </div>
   );
 };

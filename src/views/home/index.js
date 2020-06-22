@@ -7,7 +7,8 @@ import VideoBanner from "../../components/videoBanner";
 const App = () => {
   return (
     <>
-      <Banner />
+      {/*       <Banner />
+       */}{" "}
       {/*  <TextBanner />
       <VideoBanner /> */}
     </>

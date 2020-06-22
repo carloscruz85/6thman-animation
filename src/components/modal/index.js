@@ -70,7 +70,7 @@ const App = (props) => {
     modalShow:${modalShow}
     props.show:${props.show} `); */
     setModalShow(props.show);
-  });
+  }, [props.show]);
 
   const hide = () => {
     setModalShow(false);

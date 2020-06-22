@@ -57,12 +57,10 @@ const Banner = () => {
     };
   }, []);
 
-  const hi = () => {
-    console.log("hi");
-  };
-
   const send = () => {
     if (miniForm !== null) {
+      console.log("in send", miniForm.current);
+
       if (miniForm.current.value.length !== 0) {
         console.log("data received");
 
@@ -78,7 +76,7 @@ const Banner = () => {
           }
         }); */
       } else {
-        console.log("no received");
+        //console.log("no received");
         //hi();
         setOverlayer({
           show: true,
@@ -101,8 +99,6 @@ const Banner = () => {
         });
       }
     }
-
-    //console.log("here", miniForm.current.value);
   };
 
   const menuItems = ["WHY ANIMATION?", "ANIMATION EXAMPLES", "GET A QUOTE"];

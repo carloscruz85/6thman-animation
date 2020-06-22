@@ -26,6 +26,7 @@ const Banner = () => {
   const ref = useRef(null);
   const refRocketMobileContainer = useRef(null);
   const miniForm = useRef(null);
+  const miniFormMobile = useRef(null);
 
   useEffect(() => {
     setW(ref.current ? ref.current.offsetWidth : 0);
@@ -57,11 +58,11 @@ const Banner = () => {
     };
   }, []);
 
-  const send = () => {
-    if (miniForm !== null) {
-      console.log(`value ${miniForm.current.value}`);
+  const send = (varMiniForm) => {
+    if (varMiniForm !== null) {
+      console.log(`value ${varMiniForm.current.value}`);
 
-      if (miniForm.current.value.length !== 0) {
+      if (varMiniForm.current.value.length !== 0) {
         console.log("data received");
         setOverlayer({
           show: true,
@@ -72,9 +73,9 @@ const Banner = () => {
         });
 
         setEmailData({
-          name: miniForm.current.value,
-          email: miniForm.current.value,
-          message: `${miniForm.current.value} wants info from 6THMAN`,
+          name: varMiniForm.current.value,
+          email: varMiniForm.current.value,
+          message: `${varMiniForm.current.value} wants info from 6THMAN`,
         });
 
         axios({
@@ -182,7 +183,7 @@ const Banner = () => {
         <button
           className="filicudi"
           onClick={() => {
-            send();
+            send(props.myRef);
           }}
         >
           Get info
@@ -284,7 +285,7 @@ const Banner = () => {
             >
               <TextRocket />
               <div className="mini-form-mobile-container">
-                <MiniForm />
+                <MiniForm myRef={miniFormMobile} />
               </div>
             </div>
           </div>

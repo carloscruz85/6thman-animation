@@ -57,6 +57,7 @@ const index = () => {
                         className="embed-responsive-item"
                         src={`https://www.youtube.com/embed/${data.video}?rel=0`}
                         allowFullScreen
+                        title={`video_${i}`}
                       ></iframe>
                     </div>
                   </div>
@@ -113,6 +114,7 @@ const index = () => {
                   className="embed-responsive-item"
                   src={`https://www.youtube.com/embed/XeWoiC4oaSE?rel=0`}
                   allowFullScreen
+                  title="full"
                 ></iframe>
               </div>
             </div>

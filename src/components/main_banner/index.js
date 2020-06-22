@@ -1,11 +1,28 @@
 import React, { useRef, useEffect, useState } from "react";
 import "./index.scss";
 import logo from "../../media/img/logo.png";
+//import axios from "axios";
+import Modal from "../../components/modal";
 
 const Banner = () => {
   const [w, setW] = useState(0);
   const [widthRocketContainer, setWidthRocketContainer] = useState(0);
-
+  /* const [emailData, setEmailData] = useState({
+    name: "Carlos",
+    email: "ccruz@corsatur.gob.sv",
+    message: "hi",
+  }); */
+  const [overlayer, setOverlayer] = useState({
+    show: false,
+    msg: "",
+    title: "",
+    closeButton: false,
+    loader: false,
+    actionButton: {
+      action: null,
+      text: "Cerrar",
+    },
+  });
   const ref = useRef(null);
   const refRocketMobileContainer = useRef(null);
   const miniForm = useRef(null);
@@ -40,8 +57,52 @@ const Banner = () => {
     };
   }, []);
 
+  const hi = () => {
+    console.log("hi");
+  };
+
   const send = () => {
-    if (miniForm !== null) console.log("here", miniForm.current.value);
+    if (miniForm !== null) {
+      if (miniForm.current.value.length !== 0) {
+        console.log("data received");
+
+        /*  axios({
+          method: "POST",
+          url: "http://carloscruz85.com/mail.php",
+          data: emailData,
+        }).then((response) => {
+          if (response.data.status === "success") {
+            alert("Message Sent.");
+          } else if (response.data.status === "fail") {
+            alert("Message failed to send.");
+          }
+        }); */
+      } else {
+        console.log("no received");
+        //hi();
+        setOverlayer({
+          show: true,
+          msg: "Please provide your email",
+          title: "",
+          closeButton: "false",
+          loader: false,
+          actionButton: {
+            action: () => {
+              setOverlayer({
+                show: false,
+                msg: "Please provide your email",
+                title: "",
+                closeButton: "true",
+                loader: false,
+              });
+            },
+            text: "Close",
+          },
+        });
+      }
+    }
+
+    //console.log("here", miniForm.current.value);
   };
 
   const menuItems = ["WHY ANIMATION?", "ANIMATION EXAMPLES", "GET A QUOTE"];
@@ -186,6 +247,15 @@ const Banner = () => {
           {/* banner mobile */}
         </div>
       </div>
+      <Modal
+        show={overlayer.show}
+        title={overlayer.title}
+        loader={overlayer.loader}
+        actionButton={overlayer.actionButton}
+        closeButton={overlayer.closeButton}
+      >
+        {overlayer.msg}
+      </Modal>
     </div>
   );
 };

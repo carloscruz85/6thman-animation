@@ -1,17 +1,17 @@
 import React, { useRef, useEffect, useState } from "react";
 import "./index.scss";
 import logo from "../../media/img/logo.png";
-//import axios from "axios";
+import axios from "axios";
 import Modal from "../../components/modal";
 
 const Banner = () => {
   const [w, setW] = useState(0);
   const [widthRocketContainer, setWidthRocketContainer] = useState(0);
-  /* const [emailData, setEmailData] = useState({
-    name: "Carlos",
-    email: "ccruz@corsatur.gob.sv",
-    message: "hi",
-  }); */
+  const [emailData, setEmailData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [overlayer, setOverlayer] = useState({
     show: false,
     msg: "",
@@ -59,22 +59,71 @@ const Banner = () => {
 
   const send = () => {
     if (miniForm !== null) {
-      console.log("in send", miniForm.current);
+      console.log(`value ${miniForm.current.value}`);
 
       if (miniForm.current.value.length !== 0) {
         console.log("data received");
+        setOverlayer({
+          show: true,
+          msg: "Sending email please wait a moment",
+          title: "",
+          closeButton: "false",
+          loader: true,
+        });
 
-        /*  axios({
+        setEmailData({
+          name: miniForm.current.value,
+          email: miniForm.current.value,
+          message: `${miniForm.current.value} wants info from 6THMAN`,
+        });
+
+        axios({
           method: "POST",
           url: "http://carloscruz85.com/mail.php",
           data: emailData,
         }).then((response) => {
           if (response.data.status === "success") {
-            alert("Message Sent.");
+            setOverlayer({
+              show: true,
+              msg: "Mail sent",
+              title: "",
+              closeButton: "false",
+              loader: false,
+              actionButton: {
+                action: () => {
+                  setOverlayer({
+                    show: false,
+                    msg: "Thanks, we will contact you ASAP",
+                    title: "",
+                    closeButton: "true",
+                    loader: false,
+                  });
+                },
+                text: "Close",
+              },
+            });
           } else if (response.data.status === "fail") {
-            alert("Message failed to send.");
+            setOverlayer({
+              show: true,
+              msg: "An error ocurred, try again",
+              title: "",
+              closeButton: "false",
+              loader: false,
+              actionButton: {
+                action: () => {
+                  setOverlayer({
+                    show: false,
+                    msg: "",
+                    title: "",
+                    closeButton: "true",
+                    loader: false,
+                  });
+                },
+                text: "Close",
+              },
+            });
           }
-        }); */
+        });
       } else {
         //console.log("no received");
         //hi();
@@ -125,7 +174,7 @@ const Banner = () => {
     return (
       <div className={`mini-form ${props.paddingLeft ? "pl-5" : ""}`}>
         <input
-          ref={miniForm}
+          ref={props.myRef}
           type="text"
           className="american"
           placeholder="Enter email"
@@ -215,7 +264,7 @@ const Banner = () => {
                 style={{ height: `${w * 0.5423 * 0.8}px` }}
               >
                 <TextRocket paddingLeft={true} />
-                <MiniForm paddingLeft={true} />
+                <MiniForm paddingLeft={true} myRef={miniForm} />
 
                 <div className="mini-text pl-5 ml-3 american mt-3">
                   Learn more about using animation <br />

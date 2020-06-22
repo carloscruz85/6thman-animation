@@ -1,0 +1,23 @@
+@import "../../styles/index.scss";
+
+.footer-container {
+  color: white;
+  background: url("../../media/img/blue-card.png");
+  @include back-image();
+  //font-size: 37px;
+  @include multi(font-size, 25px, 25px, 37px, 37px);
+  .title {
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-ffffff);
+    text-align: left;
+    font: Solid 24px/29px Filicudi;
+    letter-spacing: 0px;
+    color: #ffffff;
+    text-shadow: 0px 5px 10px #000000b3;
+    opacity: 1;
+  }
+  .logo {
+    @include multi(width, 75px, 75px, 75px, 75px);
+    height: auto;
+  }
+}

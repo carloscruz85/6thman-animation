@@ -4,14 +4,15 @@ import Banner from "../../components/main_banner";
 import TextBanner from "../../components/textBanner";
 import VideoBanner from "../../components/videoBanner";
 import FooterForm from "../../components/footerForm";
+import Footer from "../../components/footer";
 const App = () => {
   return (
     <>
-      {/*       <Banner />
-       */}{" "}
-      {/*  <TextBanner />
-      <VideoBanner /> */}
+      <Banner />
+      <TextBanner />
+      <VideoBanner />
       <FooterForm />
+      <Footer />
     </>
   );
 };

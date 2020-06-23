@@ -3,6 +3,7 @@ import "./index.scss";
 import logo from "../../media/img/logo.png";
 import axios from "axios";
 import Modal from "../../components/modal";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   const [w, setW] = useState(0);
@@ -128,6 +129,7 @@ const Banner = () => {
       } else {
         //console.log("no received");
         //hi();
+        varMiniForm.current.focus();
         setOverlayer({
           show: true,
           msg: "Please provide your email",
@@ -242,9 +244,18 @@ const Banner = () => {
               </div>
               <div className="col-4 item-container american">
                 {menuItems.map((item, i) => (
-                  <div key={i} className="item">
+                  <Link
+                    key={i}
+                    className="item"
+                    to={{
+                      //pathname: "/",
+                      hash: "#section0",
+                      //search: "?sort=name",
+                      //state: { fromDashboard: true },
+                    }}
+                  >
                     {item}
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>

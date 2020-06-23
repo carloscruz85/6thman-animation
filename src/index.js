@@ -9,8 +9,16 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 
 import App from "./views/home";
 import * as serviceWorker from "./serviceWorker";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <Router>
+    <Switch>
+      <Route exact path="/" component={App} />
+    </Switch>
+  </Router>,
+  document.getElementById("root")
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

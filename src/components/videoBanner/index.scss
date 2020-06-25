@@ -1,0 +1,145 @@
+@import "../../styles/index.scss";
+
+.video-banner-container {
+  //z-index: 9996 !important;
+
+  background-image: url("../../media/img/back-soft-blue.png");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  font-family: filicudi-solid, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: white;
+
+  .cards {
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    .soft-blue-card {
+      transform: matrix(1, -0.02, 0.02, 1, 0, 0);
+      margin: 0 auto;
+      display: table !important;
+      background-image: url("../../media/img/soft-blue-card.png");
+      @include multi(font-size, 30px, 30px, 37px, 37px);
+      padding: 0.5rem 1rem;
+      letter-spacing: var(--unnamed-character-spacing-0);
+      color: var(--unnamed-color-ffffff);
+      text-align: center;
+      //font: Solid 60px/72px Filicudi;
+      letter-spacing: 0px;
+      color: #ffffff;
+      text-shadow: 0px 5px 10px #000000b3;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+      z-index: 95 !important;
+      .text {
+        transform: matrix(1, 0.03, -0.02, 1, 0, 0);
+      }
+    }
+    .pink-card {
+      transform: matrix(1, 0.02, -0.02, 1, 0, 0) scale(1.2);
+      @include multi(font-size, 30px, 30px, 34px, 34px);
+
+      padding: 0.5rem 1rem;
+      margin: 0 auto;
+      display: inline-block !important;
+      background-image: url("../../media/img/pink-card.png");
+      letter-spacing: var(--unnamed-character-spacing-0);
+      color: var(--unnamed-color-ffffff);
+      text-align: center;
+      letter-spacing: 0px;
+      color: #ffffff;
+      text-shadow: 0px 5px 10px #000000b3;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+      z-index: 94 !important;
+      position: relative;
+      top: -1px;
+      .text {
+        transform: matrix(1, -0.02, -0.02, 1, 0, 0);
+        br {
+          @include multi(display, block, block, none, none);
+        }
+      }
+    }
+  }
+
+  .video-container {
+    position: relative;
+    top: 50px;
+    .video-video {
+      padding: 10px 25px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5) !important;
+
+      .shadow {
+        //box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5) !important;
+      }
+    }
+    .bg-0 {
+      background-image: url("../../media/img/pink-card.png");
+    }
+    .bg-1 {
+      background-image: url("../../media/img/soft-blue-card.png");
+    }
+    .bg-2 {
+      background-image: url("../../media/img/yellow-card.png");
+    }
+    .video-title {
+      @include multi(font-size, 25px, 25px, 15px, 15px);
+      text-align: center;
+      letter-spacing: var(--unnamed-character-spacing-0);
+      color: var(--unnamed-color-ffffff);
+      text-align: center;
+      font: Solid 24px/29px Filicudi;
+      letter-spacing: 0px;
+      color: #ffffff;
+      text-shadow: 0px 5px 10px #000000b3;
+    }
+    .video-content {
+      font-family: itc-american-typewriter, serif;
+      font-style: normal;
+      font-weight: 300;
+      text-align: center;
+      font-size: 11px;
+      @include multi(font-size, 18px, 18px, 14px, 14px);
+    }
+  }
+
+  .button-container {
+    position: relative;
+    top: 40px;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: center;
+    .cc {
+      margin: 0 auto !important;
+
+      button {
+        border: none;
+        color: white;
+        background-image: url("../../media/img/pink-card.png");
+        border-radius: 15px;
+        @include multi(font-size, 18px, 18px, 11px, 11px);
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5) !important;
+        padding: 8px 25px;
+        box-shadow: inset 0px -10px 10px rgba(0, 0, 0, 0.6) !important;
+      }
+      img {
+        width: 12px;
+        height: auto;
+        position: relative;
+        left: -20px;
+        top: 0px;
+      }
+    }
+  }
+}
+
+.modal-header {
+  padding: 0;
+  padding-right: 5px;
+}
+.modal-dialog {
+  max-width: 85% !important;
+}

@@ -1,1 +1,23 @@
 @import "../../styles/index.scss";
+
+.filicudi {
+  font-family: filicudi-solid, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.american {
+  font-family: itc-american-typewriter, serif;
+  font-style: normal;
+  font-weight: 300;
+}
+
+.test {
+  border: solid 1px black;
+  height: 400px;
+  width: 200px;
+  display: flex;
+  flex-flow: column nowrap;
+  //align-content: space-around;
+  justify-content: space-around;
+}

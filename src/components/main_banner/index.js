@@ -1,10 +1,14 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useContext } from "react";
 import "./index.scss";
 import logo from "../../media/img/logo.png";
 import axios from "axios";
 import Modal from "../../components/modal";
+//import { Link } from "react-router-dom";
+import { SectionContext } from "../../context/sectionContext";
 
 const Banner = () => {
+  const { sections } = useContext(SectionContext);
+
   const [w, setW] = useState(0);
   const [widthRocketContainer, setWidthRocketContainer] = useState(0);
   const [emailData, setEmailData] = useState({
@@ -30,6 +34,7 @@ const Banner = () => {
 
   useEffect(() => {
     setW(ref.current ? ref.current.offsetWidth : 0);
+    //console.log(sections);
   }, [ref]);
 
   useEffect(() => {
@@ -128,6 +133,7 @@ const Banner = () => {
       } else {
         //console.log("no received");
         //hi();
+        varMiniForm.current.focus();
         setOverlayer({
           show: true,
           msg: "Please provide your email",
@@ -153,6 +159,10 @@ const Banner = () => {
 
   const menuItems = ["WHY ANIMATION?", "ANIMATION EXAMPLES", "GET A QUOTE"];
   const title = "SWITCH TO ANIMATION";
+  const goTo = (to) => {
+    //console.log(sections[to]);
+    sections[to].current.scrollIntoView({ block: "start", behavior: "smooth" });
+  };
 
   const TextRocket = (props) => {
     return (
@@ -215,9 +225,14 @@ const Banner = () => {
             <ul className="navbar-nav mr-auto">
               {menuItems.map((item, i) => (
                 <li className="nav-item" key={i}>
-                  <a className="nav-link american" href="#d">
+                  <div
+                    className="nav-link american"
+                    onClick={() => {
+                      goTo(`section${i}`);
+                    }}
+                  >
                     {item}
-                  </a>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -242,7 +257,13 @@ const Banner = () => {
               </div>
               <div className="col-4 item-container american">
                 {menuItems.map((item, i) => (
-                  <div key={i} className="item">
+                  <div
+                    key={i}
+                    className="item"
+                    onClick={() => {
+                      goTo(`section${i}`);
+                    }}
+                  >
                     {item}
                   </div>
                 ))}

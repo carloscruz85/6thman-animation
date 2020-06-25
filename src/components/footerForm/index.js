@@ -1,9 +1,19 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext, useEffect } from "react";
 import axios from "axios";
 import Modal from "../../components/modal";
 import "./index.scss";
+import { SectionContext } from "../../context/sectionContext";
 
 const FooterForm = () => {
+  const { dispatch } = useContext(SectionContext);
+  //console.log(sections);
+
+  const section = useRef(null);
+
+  useEffect(() => {
+    if (section !== null) dispatch({ type: "SET_SECTION_2", data: section });
+  }, [section, dispatch]);
+
   const [emailData, setEmailData] = useState({
     name: "",
     email: "",
@@ -178,7 +188,7 @@ const FooterForm = () => {
   };
 
   return (
-    <div className="footer-form-container pb-5">
+    <div className="footer-form-container pb-5" ref={section}>
       <div className="container">
         <div className="row">
           <div className="col-12 text-center">
@@ -276,7 +286,7 @@ const FooterForm = () => {
                   );
                 })}
               </div>
-              <div className="col-12 mt-4 mb-5 center-center">
+              <div className="col-12 mt-5 mb-5 center-center">
                 <div
                   className="cc filicudi "
                   onClick={() => {

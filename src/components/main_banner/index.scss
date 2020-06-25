@@ -1,6 +1,10 @@
 @import "../../styles/index.scss";
 
 .banner {
+  a {
+    color: white;
+  }
+
   //@include full-full();
   //@include center-center();
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),

@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useRef, useContext, useEffect } from "react";
 import "./index.scss";
 import lightbulb from "../../media/img/lightbulb.png";
 import eye from "../../media/img/eye.png";
 import clock from "../../media/img/clock.png";
+import { SectionContext } from "../../context/sectionContext";
 
-const index = () => {
+const TextBanner = () => {
+  const { dispatch } = useContext(SectionContext);
+  const section0 = useRef(null);
+
+  useEffect(() => {
+    if (section0 !== null) dispatch({ type: "SET_SECTION_0", data: section0 });
+  }, [section0, dispatch]);
+
   //const title = "CREATE <strong>INFORMATIVE ENGAGING</strong> VIDEO ASSETS";
   const subTitle =
     "FOR YOUR COMMERCIAL OR DIGITAL CAMPAIGNS USING MOTION GRAPHICS";
@@ -34,7 +42,7 @@ const index = () => {
   ];
 
   return (
-    <div className="text-banner-container py-5">
+    <div className="text-banner-container py-5" id="section0" ref={section0}>
       <div className="container">
         <div className="row">
           <div className="col-12">
@@ -71,4 +79,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default TextBanner;

@@ -7,10 +7,22 @@ import "bootstrap/scss/bootstrap.css";
 //import Popper from "popper.js";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
+import Sections from "./context/sectionContext";
+
 import App from "./views/home";
 import * as serviceWorker from "./serviceWorker";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <Sections>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={App} />
+      </Switch>
+    </Router>
+  </Sections>,
+  document.getElementById("root")
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

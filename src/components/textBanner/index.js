@@ -69,7 +69,7 @@ const TextBanner = () => {
                   </div>
                 </div>
 
-                <div className="item-data american">{item.data}</div>
+                <div className="item-data american px-3">{item.data}</div>
               </div>
             );
           })}

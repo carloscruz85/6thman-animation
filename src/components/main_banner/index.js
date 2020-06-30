@@ -85,7 +85,7 @@ const Banner = () => {
 
         axios({
           method: "POST",
-          url: "http://carloscruz85.com/mail.php",
+          url: "https://6thmancreative.com/animationpromo/mail.php",
           data: emailData,
         }).then((response) => {
           if (response.data.status === "success") {

@@ -109,18 +109,16 @@ const FooterForm = () => {
         loader: true,
       });
 
-      setEmailData({
+      let dataSend = {
         name: refFirst.current.value,
         email: refEmail.current.value,
         message: myBodyEmail,
-      });
+      };
 
       //sending data
-      axios({
-        method: "POST",
-        url: "https://6thmancreative.com/animationpromo/mail.php",
-        data: emailData,
-      }).then((response) => {
+      axios.post("https://6thman.us/mail.php", dataSend).then((response) => {
+        console.log(response);
+
         if (response.data.status === "success") {
           setOverlayer({
             show: true,

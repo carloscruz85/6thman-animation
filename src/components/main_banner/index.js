@@ -77,17 +77,15 @@ const Banner = () => {
           loader: true,
         });
 
-        setEmailData({
+        let dataSend = {
           name: varMiniForm.current.value,
           email: varMiniForm.current.value,
           message: `${varMiniForm.current.value} wants info from 6THMAN`,
-        });
+        };
 
-        axios({
-          method: "POST",
-          url: "http://carloscruz85.com/mail.php",
-          data: emailData,
-        }).then((response) => {
+        axios.post("https://6thman.us/mail.php", dataSend).then((response) => {
+          console.log(response);
+
           if (response.data.status === "success") {
             setOverlayer({
               show: true,
@@ -130,6 +128,8 @@ const Banner = () => {
             });
           }
         });
+
+        //console.log(dataSend);
       } else {
         //console.log("no received");
         //hi();
